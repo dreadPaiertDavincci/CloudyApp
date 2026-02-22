@@ -1,26 +1,21 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { type Product } from '../types/product';
-import { fetchAllProducts, fetchProductsByCategory } from '../api/products.api';
+import { fetchAllProducts } from '../api/products.api';
 import { useDashboardStore } from '../store/dashboardStore';
 
 export const useProducts = () => {
-  const [products, setProducts] = useState<Product[]>([]);
+  const [allProducts, setAllProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const selectedCategory = useDashboardStore((state) => state.selectedCategory);
 
   useEffect(() => {
-    const loadProducts = async () => {
+    const loadAllProducts = async () => {
       setLoading(true);
       setError(null);
       try {
-        let data;
-        if (selectedCategory === 'All Categories') {
-          data = await fetchAllProducts();
-        } else {
-          data = await fetchProductsByCategory(selectedCategory);
-        }
-        setProducts(data.products);
+        const data = await fetchAllProducts();
+        setAllProducts(data.products);
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Failed to fetch products');
       } finally {
@@ -28,8 +23,15 @@ export const useProducts = () => {
       }
     };
 
-    loadProducts();
-  }, [selectedCategory]);
+    loadAllProducts();
+  }, []);
+
+  const products = useMemo(() => {
+    if (selectedCategory === 'All Categories') {
+      return allProducts;
+    }
+    return allProducts.filter((p) => p.category === selectedCategory);
+  }, [allProducts, selectedCategory]);
 
   return { products, loading, error };
 };

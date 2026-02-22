@@ -42,34 +42,40 @@ export const ChartWidget: React.FC<ChartWidgetProps> = ({ id, title, data }) => 
 
   const COLORS = ['#3b82f6', '#60a5fa', '#93c5fd', '#bfdbfe', '#dbeafe'];
 
+  const minWidth = Math.max(100, chartData.length * 60);
+
   return (
     <Widget id={id} title={title}>
       <WidgetHeader />
       <WidgetBody>
         <p className="chart-subtitle">Current stock levels per category</p>
         <div className="chart-container">
-          <ResponsiveContainer width="100%" height={200}>
-            <BarChart data={chartData} margin={{ top: 10, right: 10, left: -20, bottom: 60 }}>
-              <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f3f4f6" />
-              <XAxis
-                dataKey="name"
-                axisLine={false}
-                tickLine={false}
-                tick={<CustomTick />}
-                interval={0}
-              />
-              <YAxis hide />
-              <Tooltip
-                cursor={{ fill: '#f9fafb' }}
-                contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)' }}
-              />
-              <Bar dataKey="value" radius={[4, 4, 0, 0]} barSize={36}>
-                {chartData.map((_entry, index) => (
-                  <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                ))}
-              </Bar>
-            </BarChart>
-          </ResponsiveContainer>
+          <div className="chart-scroll-wrapper">
+            <div style={{ width: '100%', minWidth: `${minWidth}px`, height: '100%' }}>
+              <ResponsiveContainer width="100%" height={200}>
+                <BarChart data={chartData} margin={{ top: 10, right: 30, left: -20, bottom: 65 }}>
+                  <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f3f4f6" />
+                  <XAxis
+                    dataKey="name"
+                    axisLine={false}
+                    tickLine={false}
+                    tick={<CustomTick />}
+                    interval={0}
+                  />
+                  <YAxis hide />
+                  <Tooltip
+                    cursor={{ fill: '#f9fafb' }}
+                    contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)' }}
+                  />
+                  <Bar dataKey="value" radius={[4, 4, 0, 0]} barSize={32}>
+                    {chartData.map((_entry, index) => (
+                      <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                    ))}
+                  </Bar>
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
+          </div>
         </div>
       </WidgetBody>
     </Widget>
