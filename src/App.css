@@ -1,0 +1,12 @@
+.app-main {
+     min-height: 100vh;
+     background-color: #f9fafb;
+}
+
+@media (prefers-color-scheme: dark) {
+
+     /* Forcing light mode as per requirements */
+     .app-main {
+          background-color: #f9fafb;
+     }
+}
