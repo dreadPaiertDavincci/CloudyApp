@@ -1,9 +1,9 @@
 import { useMemo } from 'react';
 import { type Product } from '../types/product';
-import { 
-  getTotalInventoryValue, 
-  getStockByCategory, 
-  getTopExpensiveProducts 
+import {
+  getTotalInventoryValue,
+  getStockByCategory,
+  getTopExpensiveProducts
 } from '../utils/aggregation';
 
 export const useAggregation = (products: Product[]) => {
