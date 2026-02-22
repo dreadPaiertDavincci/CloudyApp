@@ -25,10 +25,10 @@ const CustomTick = (props: any) => {
       <text
         x={0}
         y={0}
-        dy={12}
+        dy={8}
         textAnchor="end"
         fill="#6b7280"
-        fontSize={10}
+        fontSize={9}
         transform="rotate(-45)"
       >
         {payload.value}
@@ -53,7 +53,7 @@ export const ChartWidget: React.FC<ChartWidgetProps> = ({ id, title, data }) => 
           <div className="chart-scroll-wrapper">
             <div style={{ width: '100%', minWidth: `${minWidth}px`, height: '100%' }}>
               <ResponsiveContainer width="100%" height={200}>
-                <BarChart data={chartData} margin={{ top: 10, right: 30, left: -20, bottom: 65 }}>
+                <BarChart data={chartData} margin={{ top: 10, right: 30, left: 20, bottom: 65 }}>
                   <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f3f4f6" />
                   <XAxis
                     dataKey="name"
