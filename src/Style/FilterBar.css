@@ -1,0 +1,65 @@
+.filter-bar {
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     padding: 12px 0;
+     margin-bottom: 24px;
+}
+
+.filter-bar-left {
+     display: flex;
+     align-items: center;
+     gap: 12px;
+}
+
+.filter-bar-left label {
+     font-size: 14px;
+     color: #6b7280;
+}
+
+.filter-bar-left select {
+     padding: 8px 12px;
+     border: 1px solid #e5e7eb;
+     border-radius: 6px;
+     font-size: 14px;
+     background-color: #f9fafb;
+}
+
+.filter-bar-right {
+     display: flex;
+     align-items: center;
+     gap: 16px;
+}
+
+.save-button {
+     background-color: #2563eb;
+     color: white;
+     border: none;
+     padding: 8px 16px;
+     border-radius: 6px;
+     font-size: 14px;
+     font-weight: 600;
+     display: flex;
+     align-items: center;
+     gap: 8px;
+     cursor: pointer;
+     transition: background-color 0.2s;
+}
+
+.save-button:hover {
+     background-color: #1d4ed8;
+}
+
+.settings-button {
+     background: none;
+     border: none;
+     color: #6b7280;
+     cursor: pointer;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+}
+
+.settings-button:hover {
+     color: #374151;
+}

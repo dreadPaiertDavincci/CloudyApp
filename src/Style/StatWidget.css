@@ -1,0 +1,67 @@
+.stat-content {
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+     height: 100%;
+     padding-top: 10px;
+}
+
+.stat-value-container {
+     display: flex;
+     align-items: center;
+     gap: 16px;
+     margin-bottom: 40px;
+}
+
+.stat-icon-wrapper {
+     background-color: #ecfdf5;
+     padding: 8px;
+     border-radius: 8px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+}
+
+.stat-value {
+     font-size: 32px;
+     font-weight: 800;
+     color: #111827;
+     margin: 0;
+}
+
+.stat-footer {
+     display: flex;
+     flex-direction: column;
+     gap: 8px;
+}
+
+.stat-trend-badge {
+     display: inline-flex;
+     align-items: center;
+     gap: 4px;
+     background-color: #ecfdf5;
+     color: #059669;
+     padding: 4px 8px;
+     border-radius: 6px;
+     font-size: 13px;
+     font-weight: 700;
+     width: fit-content;
+}
+
+.stat-meta {
+     display: flex;
+     align-items: center;
+     gap: 6px;
+     font-size: 13px;
+     color: #9ca3af;
+}
+
+.meta-separator {
+     color: #d1d5db;
+}
+
+.stat-comparison {
+     font-size: 12px;
+     color: #9ca3af;
+     margin: 4px 0 0 0;
+}
